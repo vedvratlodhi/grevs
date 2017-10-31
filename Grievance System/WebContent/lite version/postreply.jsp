@@ -145,7 +145,9 @@ app.bundle.css:1
 					Grievences gri =gd.findByComplaintno(request.getParameter("compi"));
 					
 					GChatDAO gcd= new GChatDAO();
-					ResultSet rs =gcd.getAllChatByComplaintId(request.getParameter("compi"));
+					List<GChat> g=null;
+					 g =gcd.getAllChatByComplaintId(request.getParameter("compi"));
+					 
 					
 					
 					int [] a={0,1};
@@ -156,7 +158,7 @@ app.bundle.css:1
 							<h4 class="card-title" ><%=gri.getSubject()%></h4>
 								<div class="card">
 							<section id="chat-wrapper">
-											<div class="chat-row first col-sm-12">
+											<!-- <div class="chat-row first col-sm-12">
 												<img src="assets/img/backgrounds/18.jpg" alt="" class="img-circle img-sm pull-right mCS_img_loaded">
 												<div class="bubble">
 													<div class="message">
@@ -165,38 +167,46 @@ app.bundle.css:1
 													<div class="date">
 													</div>
 												</div>
-											</div>
+											</div> -->
+										
 											<div class="chat-row response col-sm-12">
 												<img src="assets/img/profiles/07.jpg" alt="" class="img-circle img-sm pull-left mCS_img_loaded">
 												<div class="bubble_response">
 													<div class="message">
-														<p><%=gri.getGrievdetails()%>Yeah that sounds great! Have a new project to run by you.</p>
-													</div>
-													<div class="date">
-													</div>
-												</div>
-											</div>
-											<div class="chat-row col-sm-12">
-												<img src="assets/img/profiles/18.jpg" alt="" class="img-circle img-sm pull-right mCS_img_loaded">
-												<div class="bubble">
-													<div class="message">
-														<p>Awesome, let's meet at the coffee shop on South Brodway. What time works best for you?</p>
-													</div>
-													<div class="date">
-													</div>
-												</div>
-											</div>
-											<div class="chat-row response col-sm-12">
-												<img src="assets/img/profiles/07.jpg" alt="" class="img-circle img-sm pull-left mCS_img_loaded">
-												<div class="bubble_response">
-													<div class="message">
-														<p>Have a meeting today, but I'll be free around 4pm.</p>
+														<p><%=gri.getGrievdetails()%></p>
 													</div>
 													<div class="date">
 													</div>
 												</div>
 											</div>
 											
+										
+											<% 	for(GChat g1:g){ 
+											if(g1.getChatBY().equals("s")){
+											%>
+											<div class="chat-row response col-sm-12">
+												<img src="assets/img/profiles/07.jpg" alt="" class="img-circle img-sm pull-left mCS_img_loaded">
+												<div class="bubble_response">
+													<div class="message">
+														<p><%=g1.getCReply() %>                                       </p>
+													</div>
+													<div class="date">
+													</div>
+												</div>
+											</div>
+
+											<%}else{ %>
+											<div class="chat-row col-sm-12">
+												<img src="assets/img/profiles/18.jpg" alt="" class="img-circle img-sm pull-right mCS_img_loaded">
+												<div class="bubble">
+													<div class="message">
+														<p><%=g1.getCReply() %> 						</p>
+													</div>
+													<div class="date">
+													</div>
+												</div>
+											</div>
+											<%}} %>
 											<div class="chat-row col-sm-12">
 												<img src="assets/img/profiles/18.jpg" alt="" class="img-circle img-sm pull-right mCS_img_loaded">
 												<div class="bubble">

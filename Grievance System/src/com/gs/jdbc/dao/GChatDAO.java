@@ -5,7 +5,10 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.gs.jdbc.entity.GChat;
 import com.gs.jdbc.entity.Grievences;
 import com.gs.jdbc.utilities.MyDatabaseConnection;
 
@@ -31,21 +34,41 @@ public class GChatDAO {
 		}
 	}
 	
-	public ResultSet getAllChatByComplaintId(String compId)
+	public List<GChat> getAllChatByComplaintId(String compId)
 	{
 		Connection conn = MyDatabaseConnection.getConnection();
 		ResultSet rs =null;
+		List<GChat> glist = new ArrayList<GChat>();
 		try {
-			PreparedStatement ps = conn.prepareStatement("select * from g_chat where gchat_id='?'");
+			PreparedStatement ps = conn.prepareStatement("select * from g_chat where complaint_no=?");
 			ps.setString(1,compId);
-			
 			 rs= ps.executeQuery();
-			System.out.println("");
+			 while(rs.next()){
+				GChat g = new GChat(); 
+			
+			g.setChatBY(rs.getString("chat_by"));
+			g.setCReply(rs.getString("c_reply"));
+			
+			g.setRDate(rs.getString("rdate"));
+			glist.add(g);
+			System.out.println(g);
+			 }
+			
 		} catch (SQLException sq) {
 			sq.printStackTrace();
 			System.out.println("Unable to create a new row." + sq);
 		}
-		return rs;
-	}
+		
 	
+		
+		return glist;
+		
+		
+	}
+	public static void main(String args[])
+	{
+		 GChatDAO g =new GChatDAO();
+		System.out.println(g.getAllChatByComplaintId("100000"));
+		 
+	}
 }
