@@ -7,7 +7,12 @@ body {
     line-height: 30px;
     text-align: center;
 }
-
+.header-name{
+	position:relative;
+	left:10px;
+	text-align:center;
+	margin-left:20px;
+}
 strong { font-weight: 500; }
 
 a, a:hover, a:focus {

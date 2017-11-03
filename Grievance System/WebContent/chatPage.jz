@@ -6,7 +6,7 @@
 <html>
 <jsp:include page="stuheader.jsp"></jsp:include>
 <body>
-	<jsp:include page="adminsidenav.jsp"></jsp:include>
+	<jsp:include page="stusidenav.jsp"></jsp:include>
 	<style>
 	element.style {
     position: relative;
@@ -214,29 +214,9 @@ app.bundle.css:1
 				</div>
 			</div>
  -->
-			<%
-			System.out.println("hekllo");
-					/* Grievences gri = new Grievences(); */
-					GrievencesDao gd = new GrievencesDao();
-					Grievences gri =gd.findByComplaintno(request.getParameter("compi"));
-					
-					GChatDAO gcd= new GChatDAO();
-					List<GChat> g=null;
-					 g =gcd.getAllChatByComplaintId(request.getParameter("compi"));
-					 
-					
-					
-					int [] a={0,1};
-				%>
-				
-				
-			<form action="closeGrievances.jsp" method="post">
-			<input type="hidden" name="no" value="<%=gri.getComplaint_no()%>">
-			<input class="btn btn-warning" style="margin-bottom:10px;" type="submit" value="Close Grievance">
-			</form>
 			<div class="card">
-				<h4 class="card-title"><%=gri.getEnroll_no() %></h4>
-				<h4 class="card-title"><%=gri.getSubject()%></h4>
+				<h4 class="card-title">Student Name</h4>
+				<h4 class="card-title">Grievance Subject</h4>
 				<div class="card">
 					<section id="chat-wrapper">
 					<div class="row">
@@ -245,85 +225,71 @@ app.bundle.css:1
 						<div class="chat-row response ">
 							<div class="bubble_response ">
 								<div class="message">
-									<p><%=gri.getGrievdetails()%></p>
+									<p>Have a meeting today, gjgi  gtt ttu ut u ut tt iii i iy i iti i i tt utut t ut uttutut  ru tuutu t  ibut I'll be free around 4pm.hgjggg jju uittit it titit  tut i i6t i i</p>
 								</div>
 								<div class="date"></div>
 							</div>
 						</div>
 						</div>
 
-
-<% 	for(GChat g1:g){ 
-											if(g1.getChatBY().equals("a")){
-											%>
-											<!-- post from admin -->
-											
 						<div class="col-sm-12">
 						<div class="chat-row ">
 							<div class="bubble ">
 								<div class="message">
-									<p>Me: <%=g1.getCReply() %> </p>
+									<p>Awesome, let's meet at the coffee shop on South Brodway.
+										What time works best for you? khkhkh gutt titi t itit i iti ititit iti tutut  t ti ti </p>
 								</div>
 								<div class="date"></div>
 							</div>
 						</div>
 						</div>
-						<%}else{ %>
-			<!-- post from Student -->
+						
 						<div class="col-sm-12">
 						<div class="chat-row response ">
 							<div class="bubble_response ">
 								<div class="message">
-									<p><%=g1.getCReply() %> </p>
+									<p>Have a meeting today, gjgi  gtt ttu ut u ut tt iii i iy i iti i i tt utut t ut uttutut  ru tuutu t  ibut I'll be free around 4pm.hgjggg jju uittit it titit  tut i i6t i i</p>
 								</div>
 								<div class="date"></div>
 							</div>
 						</div>
-						
 						</div>
-						<%}} %>
 						
-						
-					</div>
-					  <%if(gri.getStatus()=='c')
-                {%>
-                	<span class="field-validation-valid"
-							data-valmsg-for="PostedDetails" data-valmsg-replace="true"
-							style="color: red">Grievance Closed</span>
-               <%}
-                else{ %>
-				<form action="postmidreply.jsp" method="post">
-					<input name="__RequestVerificationToken" type="hidden" value="" />
-					<div class="form-horizontal">
-						
-       
-        
-        <input type="hidden" name="comp" value="<%=request.getParameter("compi")%>" >
-        <input type="hidden" name="status" value="a" >
-
-						<div clas.ges="form-group">
-							<label class="control-label col-md-2" for="PostedReply">Post
-								Reply</label>
-							<div class="col-md-10">
-								<textarea class="form-control" cols="20" data-val="true"
-									data-val-required="The Posted Details field is required."
-									id="PostedDetails" name="postreply" rows="2">
-</textarea>
-								<span class="field-validation-valid"
-									data-valmsg-for="PostedDetails" data-valmsg-replace="true"
-									style="color: red"></span>
+						<div class="col-sm-12">
+						<div class="chat-row ">
+							<div class="bubble ">
+								<div class="message">
+									<p>Awesome, let's meet at the coffee shop on South Brodway.
+										What time works best for you?</p>
+								</div>
+								<div class="date"></div>
 							</div>
 						</div>
-
-             
-						<div class="form-group">
-							<div class="col-md-offset-2 col-md-10">
-								<input type="submit" value="Submit Reply" class="btn btn-default" />
+						</div>
+						
+						<div class="col-sm-12">
+						<div class="chat-row response ">
+							<div class="bubble_response ">
+								<div class="message">
+									<p>Have a meeting i6t i i</p>
+								</div>
+								<div class="date"></div>
 							</div>
 						</div>
+						</div>
+						
+						<div class="col-sm-12">
+						<div class="chat-row ">
+							<div class="bubble ">
+								<div class="message">
+									<p>Awesome, let's meet at the coffee</p>
+								</div>
+								<div class="date"></div>
+							</div>
+						</div>
+						</div>
+
 					</div>
-				</form>
-				<%} %>
 					</section>
 				</div>
 			</div>

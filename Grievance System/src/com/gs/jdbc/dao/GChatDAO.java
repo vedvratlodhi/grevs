@@ -14,7 +14,7 @@ import com.gs.jdbc.utilities.MyDatabaseConnection;
 
 public class GChatDAO {
 
-	public void create(String cmpno ,String reply,java.sql.Date d) {
+	public void create(String status,String cmpno ,String reply,java.sql.Date d) {
 		System.out.println(cmpno);
 		System.out.println(reply);
 
@@ -22,7 +22,7 @@ public class GChatDAO {
 		try {
 			String sql = "insert into g_chat(chat_by,complaint_no,c_reply,rdate) values(?,?,?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1,"a");
+			ps.setString(1,status);
 			ps.setString(2, cmpno);
 			ps.setString(3,reply);
 			ps.setDate(4, d);

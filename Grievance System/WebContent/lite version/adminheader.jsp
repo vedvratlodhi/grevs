@@ -10,7 +10,7 @@
 <!-- Favicon icon -->
 <link rel="icon" type="image/png" sizes="16x16"
 	href="../assets/images/favicon.png">
-<title>Admin Pannel</title>
+<title>Admin Panel</title>
 <!-- Bootstrap Core CSS -->
 <link href="../assets/plugins/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">

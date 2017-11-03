@@ -103,10 +103,12 @@
 												<td><%=gri.getGrievdetails()%></td>
 												<td>
 													<%
-														if (gri.getStatus() == 'H') {
+														if (gri.getStatus() == 'p') {
 													%> pending <%
-														} else {
+														} else if(gri.getStatus() == 'r') {
 													%> replied <%
+														} else {
+													%> closed <%
 														}
 													%>
 												</td>

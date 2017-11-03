@@ -19,11 +19,11 @@
 				<!-- ============================================================== -->
 				<!-- Logo -->
 				<!-- ============================================================== -->
-				<div class="navbar-header">
+				<div>
 					<a class="navbar-brand" href="adminpannel.jsp"> <!-- Logo icon -->
 						<b> <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
 							<!-- Dark Logo icon -->
-							<h4>Admin Pannel</h4>
+							<h3 style="position:relative; font-size:25px; margin-left:40px; color:white;">Admin Panel</h3>
 					</b> <!--End Logo icon --> <!-- Logo text --> <span> <!-- dark Logo text -->
 
 					</span>
@@ -41,13 +41,13 @@
 						<li class="nav-item"><a
 							class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
 							href="javascript:void(0)"><i class="ti-menu"></i></a></li>
-						<li class="nav-item hidden-sm-down">
+						<!-- <li class="nav-item hidden-sm-down">
 							<form class="app-search p-l-20">
 								<input type="text" class="form-control"
 									placeholder="Search for..."> <a class="srh-btn"><i
 									class="ti-search"></i></a>
 							</form>
-						</li>
+						</li> -->
 					</ul>
 					<!-- ============================================================== -->
 					<!-- User profile and search -->
@@ -55,7 +55,7 @@
 					<ul class="navbar-nav my-lg-0">
 						<li class="nav-item dropdown">
 						
-								<a href="NewFile.jsp">Logout</a>
+								<a class="btn btn-warning" style="font-size:18px;" href="NewFile.jsp">Logout</a>
 						 <!--   <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="NewFile.jsp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logout</a>
                        --></li>
 					</ul>

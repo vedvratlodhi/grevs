@@ -1,12 +1,13 @@
+<%@page import="java.sql.ResultSet"%>
 <%@ page language="java"
 	import="java.util.*,com.gs.jdbc.entity.*,com.gs.jdbc.dao.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<jsp:include page="stuheader.jsp"></jsp:include>
+<jsp:include page="adminheader.jsp"></jsp:include>
 <body>
-	<jsp:include page="adminsidenav.jsp"></jsp:include>
+<jsp:include page="adminsidenav.jsp"></jsp:include>
 	<style>
 	element.style {
     position: relative;
@@ -73,14 +74,14 @@ padding:10px;
 border-bottom:2px #d7e4f4 solid;
 }
 #chat-wrapper .chat-row .bubble {
-    max-width:60%;
+    max-width: 70%;
     display: inline;
     background: #28bebd;
     float: right;
     color: #fff;
     border-radius: 5px;
     padding: 10px;
-    margin: 0 10px 5px 0;
+    margin: 0 0 5px 0;
     font-size: 14px;
     position: relative;
     top: -5px;
@@ -91,14 +92,14 @@ app.bundle.css:1
 }
 
 #chat-wrapper .chat-row.response .bubble_response {
-    max-width: 60%;
+    max-width: 70%;
     display: inline;
     background: #d7e4f4;
     float: left;
     color: #607188;
     border-radius: 5px;
     padding: 10px;
-    margin: 0 0 5px 10px;
+    margin: 0 0 5px 0;
     font-size: 14px;
     position: relative;
     top: -5px;
@@ -108,51 +109,56 @@ app.bundle.css:1
     outline: 0;
 }
 	</style>
-	<div class="page-wrapper">
 		<!-- ============================================================== -->
-		<!-- Container fluid  -->
+		<!-- Page wrapper  -->
 		<!-- ============================================================== -->
-		<div class="container-fluid">
+		<div class="page-wrapper">
 			<!-- ============================================================== -->
-			<!-- Bread crumb and right sidebar toggle -->
+			<!-- Container fluid  -->
 			<!-- ============================================================== -->
-			<div class="row page-titles">
-				<div class="col-md-6 col-8 align-self-center">
-					<h3 class="text-themecolor m-b-0 m-t-0">Student Grievances</h3>
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-						<li class="breadcrumb-item active">Table</li>
-					</ol>
-				</div>
-				<!--   <div class="col-md-6 col-4 align-self-center">
+			<div class="container-fluid">
+				<!-- ============================================================== -->
+				<!-- Bread crumb and right sidebar toggle -->
+				<!-- ============================================================== -->
+				<div class="row page-titles">
+					<div class="col-md-6 col-8 align-self-center">
+						<h3 class="text-themecolor m-b-0 m-t-0">All Grievances</h3>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+							<li class="breadcrumb-item active">Table</li>
+						</ol>
+					</div>
+					<!--   <div class="col-md-6 col-4 align-self-center">
                         <a href="https://wrappixel.com/templates/monsteradmin/" class="btn pull-right hidden-sm-down btn-success"> Upgrade to Pro</a>
                     </div>-->
-			</div>
-			<!-- ============================================================== -->
-			<!-- Start Page Content -->
-			<!-- ============================================================== -->
-			<%-- <%
-				GrievencesDao obj = new GrievencesDao();
-				String id = (String) session.getAttribute("id");
-				System.out.println(id);
-				ArrayList<Grievences> al = obj.findAllByStudent(id);
-
-				if (al == null) {
-			%>
-			<h1>Record not found</h1>
-			<%
-				} else {
-					System.out.println(al);
-			%> --%>
-			<!-- <div class="row">
-				column
-				
+				</div>
+				<!-- ============================================================== -->
+				<!-- End Bread crumb and right sidebar toggle -->
+				<!-- ============================================================== -->
+				<!-- ============================================================== -->
+				<!-- Start Page Content -->
+<div class="row">
+				<!-- column -->
+				 <%
+					/* Grievences gri = new Grievences(); */
+					GrievencesDao gd = new GrievencesDao();
+					Grievences gri =gd.findByComplaintno(request.getParameter("compi"));
+					
+					GChatDAO gcd= new GChatDAO();
+					List<GChat> g=null;
+					 g =gcd.getAllChatByComplaintId(request.getParameter("compi"));
+					 
+					
+					
+					int [] a={0,1};
+				%>
 					<div class="card">
 						
-							<h4 class="card-title" >Grievances</h4>
+							<h4 class="card-title" ><%=gri.getEnroll_no() %></h4>
+							<h4 class="card-title" ><%=gri.getSubject()%></h4>
 								<div class="card">
 							<section id="chat-wrapper">
-											<div class="chat-row first col-sm-12">
+											<!-- <div class="chat-row first col-sm-12">
 												<img src="assets/img/backgrounds/18.jpg" alt="" class="img-circle img-sm pull-right mCS_img_loaded">
 												<div class="bubble">
 													<div class="message">
@@ -161,17 +167,46 @@ app.bundle.css:1
 													<div class="date">
 													</div>
 												</div>
-											</div>
+											</div> -->
+										
 											<div class="chat-row response col-sm-12">
 												<img src="assets/img/profiles/07.jpg" alt="" class="img-circle img-sm pull-left mCS_img_loaded">
 												<div class="bubble_response">
 													<div class="message">
-														<p>Yeah that sounds great! Have a new project to run by you.</p>
+														<p><%=gri.getGrievdetails()%></p>
 													</div>
 													<div class="date">
 													</div>
 												</div>
 											</div>
+											
+										
+											<% 	for(GChat g1:g){ 
+											if(g1.getChatBY().equals("s")){
+											%>
+											<div class="chat-row response col-sm-12">
+												<img src="assets/img/profiles/07.jpg" alt="" class="img-circle img-sm pull-left mCS_img_loaded">
+												<div class="bubble_response">
+													<div class="message">
+														<p><%=g1.getCReply() %>                                       </p>
+													</div>
+													<div class="date">
+													</div>
+												</div>
+											</div>
+
+											<%}else{ %>
+											<div class="chat-row col-sm-12">
+												<img src="assets/img/profiles/18.jpg" alt="" class="img-circle img-sm pull-right mCS_img_loaded">
+												<div class="bubble">
+													<div class="message">
+														<p><%=g1.getCReply() %> 						</p>
+													</div>
+													<div class="date">
+													</div>
+												</div>
+											</div>
+											<%}} %>
 											<div class="chat-row col-sm-12">
 												<img src="assets/img/profiles/18.jpg" alt="" class="img-circle img-sm pull-right mCS_img_loaded">
 												<div class="bubble">
@@ -193,10 +228,27 @@ app.bundle.css:1
 												</div>
 											</div>
 											
-											
-											
-											
 											<div class="chat-row col-sm-12">
+												<img src="assets/img/profiles/18.jpg" alt="" class="img-circle img-sm pull-right mCS_img_loaded">
+												<div class="bubble">
+													<div class="message">
+														<p>Awesome, let's meet at the coffee shop on South Brodway. What time works best for you?</p>
+													</div>
+													<div class="date">
+													</div>
+												</div>
+											</div>
+											<div class="chat-row response col-sm-12">
+												<img src="assets/img/profiles/07.jpg" alt="" class="img-circle img-sm pull-left mCS_img_loaded">
+												<div class="bubble_response">
+													<div class="message">
+														<p>Have a meeting today, but I'll be free around 4pm.</p>
+													</div>
+													<div class="date">
+													</div>
+												</div>
+											</div>
+											<!-- <div class="chat-row col-sm-12">
 												<img src="assets/img/profiles/18.jpg" alt="" class="img-circle img-sm pull-right mCS_img_loaded">
 												<div class="bubble">
 													<div class="message">
@@ -205,7 +257,7 @@ app.bundle.css:1
 													<div class="date">
 													</div>
 												</div>
-											</div>
+											</div> -->
 											
 											
 										</section>
@@ -213,93 +265,23 @@ app.bundle.css:1
 						</div>
 				</div>
 			</div>
- -->
-			<%
-			System.out.println("hekllo");
-					/* Grievences gri = new Grievences(); */
-					GrievencesDao gd = new GrievencesDao();
-					Grievences gri =gd.findByComplaintno(request.getParameter("compi"));
-					
-					GChatDAO gcd= new GChatDAO();
-					List<GChat> g=null;
-					 g =gcd.getAllChatByComplaintId(request.getParameter("compi"));
-					 
-					
-					
-					int [] a={0,1};
-				%>
-				
-				
-			<form action="closeGrievances.jsp" method="post">
-			<input type="hidden" name="no" value="<%=gri.getComplaint_no()%>">
-			<input class="btn btn-warning" style="margin-bottom:10px;" type="submit" value="Close Grievance">
-			</form>
-			<div class="card">
-				<h4 class="card-title"><%=gri.getEnroll_no() %></h4>
-				<h4 class="card-title"><%=gri.getSubject()%></h4>
-				<div class="card">
-					<section id="chat-wrapper">
-					<div class="row">
-
-						<div class="col-sm-12">
-						<div class="chat-row response ">
-							<div class="bubble_response ">
-								<div class="message">
-									<p><%=gri.getGrievdetails()%></p>
-								</div>
-								<div class="date"></div>
-							</div>
-						</div>
-						</div>
+			
 
 
-<% 	for(GChat g1:g){ 
-											if(g1.getChatBY().equals("a")){
-											%>
-											<!-- post from admin -->
-											
-						<div class="col-sm-12">
-						<div class="chat-row ">
-							<div class="bubble ">
-								<div class="message">
-									<p>Me: <%=g1.getCReply() %> </p>
-								</div>
-								<div class="date"></div>
-							</div>
-						</div>
-						</div>
-						<%}else{ %>
-			<!-- post from Student -->
-						<div class="col-sm-12">
-						<div class="chat-row response ">
-							<div class="bubble_response ">
-								<div class="message">
-									<p><%=g1.getCReply() %> </p>
-								</div>
-								<div class="date"></div>
-							</div>
-						</div>
-						
-						</div>
-						<%}} %>
-						
-						
-					</div>
-					  <%if(gri.getStatus()=='c')
-                {%>
-                	<span class="field-validation-valid"
-							data-valmsg-for="PostedDetails" data-valmsg-replace="true"
-							style="color: red">Grievance Closed</span>
-               <%}
-                else{ %>
+
 				<form action="postmidreply.jsp" method="post">
 					<input name="__RequestVerificationToken" type="hidden" value="" />
 					<div class="form-horizontal">
-						
+						<!--  <div class="form-group">
+            <label class="control-label col-md-2" for="Subject">Subject</label>
+            <div class="col-md-10">
+                <input class="form-control" data-val="true" data-val-required="The Subject field is required." id="Subject" maxlength="250" name="Subject" type="text" value="" /> (Max 200 characters)
+                <span class="field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true" style="color:red"></span>
+            </div>
+        </div> -->
        
         
         <input type="hidden" name="comp" value="<%=request.getParameter("compi")%>" >
-        <input type="hidden" name="status" value="a" >
 
 						<div clas.ges="form-group">
 							<label class="control-label col-md-2" for="PostedReply">Post
@@ -315,7 +297,8 @@ app.bundle.css:1
 							</div>
 						</div>
 
-             
+
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input type="submit" value="Submit Reply" class="btn btn-default" />
@@ -323,18 +306,16 @@ app.bundle.css:1
 						</div>
 					</div>
 				</form>
-				<%} %>
-					</section>
-				</div>
+				<!-- End PAge Content -->
+				<!-- ============================================================== -->
 			</div>
-</div>
+			<!-- ============================================================== -->
+			<!-- End Container fluid  -->
+			<!-- ============================================================== -->
+			<!-- ============================================================== -->
+			<!-- footer -->
+	<jsp:include page="adminfooter.jsp"></jsp:include>
+</body>
 
-			<!-- ============================================================== -->
-			<!-- End PAge Content -->
-			<!-- ============================================================== -->
-		</div>
-		<!-- ============================================================== -->
-		<!-- End Container fluid  -->
-		<!-- ============================================================== -->
-		<!-- ============================================================== -->
-		<jsp:include page="stufooter.jsp"></jsp:include>
+</body>
+</html>

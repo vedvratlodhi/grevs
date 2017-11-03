@@ -64,18 +64,18 @@
 						<div class="card">
 							<div class="card-block">
 								<h4 class="card-title">Grievances</h4>
-								<div class="table-responsive">
-									<table class="table">
+								<div class="table-responsive" >
+									<table class="table table-condensed">
 										<thead>
-											<tr>
+											<tr class="row" style="margin-left:5px;">
 												
-												<th>Complaint No</th>
-												<th>Enroll No</th>
-												<th>Subject</th>
-												<th>Date</th>
-												<th>Grievance</th>
+												<!-- <th class="col-md-2">Complaint No</th> -->
+												<th class="col-md-2">Enroll No</th>
+												<th class="col-md-3">Subject</th>
+												<th class="col-md-2">Date</th>
+												<th class="col-md-4">Grievance</th>
 												
-												<th>Reply</th>
+												<th class="col-md-1">Reply</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -83,19 +83,19 @@
 												for (Grievences gri : al) {
 											%>
 
-											<tr>
-												<td><%=gri.getComplaint_no()%></td>
-												<td><%=gri.getEnroll_no()%></td>
-												<td><%=gri.getSubject()%></td>
-												<td><%=gri.getGdate()%></td>
-												<td><%=gri.getGrievdetails()%></td>
+											<tr class="row" style="margin-left:5px;">
+												<%-- <td class="col-md-2"><%=gri.getComplaint_no()%></td> --%>
+												<td class="col-md-2"><%=gri.getEnroll_no()%></td>
+												<td class="col-md-3"><%=gri.getSubject()%></td>
+												<td class="col-md-2"><%=gri.getGdate()%></td>
+												<td class="col-md-4"><%=gri.getGrievdetails()%></td>
 												<form action="postreply.jsp" >
 												
 												
 												
 											
 												 <input type="hidden" name="compi" value= "<%=gri.getComplaint_no()%>">
-												<td> <input type="submit" value="reply"></td>
+												<td class="col-md-1"> <input type="submit" class="btn btn-info" value="reply"></td>
 												 
 												 </form>
 												 

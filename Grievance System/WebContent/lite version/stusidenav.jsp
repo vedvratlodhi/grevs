@@ -18,11 +18,11 @@
                 <!-- ============================================================== -->
                 <!-- Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-header">
+                <div class="">
                     <a class="navbar-brand" href="viewGrievences.jsp">
                         <!-- Logo icon -->
                         <b>
-                        <h2>Student Pannel</h2>
+                        <h2 style="position:relative; font-size:25px; margin-left:40px; color:white;">Student Panel</h2>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
                          <!--    <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" /> -->
@@ -42,7 +42,7 @@
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                    <h2>BIRTS</h2>
+                    <!-- <h2>BIRTS</h2> -->
                  <ul class="navbar-nav mr-auto mt-md-0 ">
                         
                         <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
@@ -57,7 +57,7 @@
                     <!-- ============================================================== -->
                   <ul class="navbar-nav my-lg-0">
 				<li class="nav-item dropdown">
-			<a href="NewFile.jsp">	<button>Logout</button></a>
+			<a href="NewFile.jsp" class="btn btn-warning" style="font-size:18px;">Logout</a>
 						 <!--   <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="NewFile.jsp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logout</a>
                        --></li>
 			</ul>

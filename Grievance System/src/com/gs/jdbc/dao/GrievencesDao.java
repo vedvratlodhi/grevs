@@ -17,7 +17,7 @@ public class GrievencesDao {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
 			ps.setString(1, obj.getSubject());
-			ps.setString(2, "" + obj.getStatus());
+			ps.setString(2, "p");
 			
 			java.sql.Date dt = new java.sql.Date(obj.getGdate().getTime());
 			System.out.println("dat: "  + dt);
@@ -33,13 +33,12 @@ public class GrievencesDao {
 	public void editByComp(Grievences gev) {
 		Connection conn = MyDatabaseConnection.getConnection();
 		try {
-			String sql = "update grievances set reply = ? where complaint_no = ?";
+			String sql = "update grievances set status = ? where complaint_no = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, gev.getReply());
-
-			ps.setInt(2, gev.getComplaint_no());
+			ps.setString(1, Character.toString(gev.getStatus()));
+    			ps.setInt(2, gev.getComplaint_no());
 			ps.executeUpdate();
-		} catch (SQLException sq) {
+		} catch(SQLException sq) {
 			System.out.println("Unable to create a new row." + sq);
 		}
 	}

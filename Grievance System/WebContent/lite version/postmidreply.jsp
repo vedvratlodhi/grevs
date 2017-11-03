@@ -30,13 +30,24 @@ int comp = Integer.parseInt(request.getParameter("comp"));
  
  <%
 	String reply = request.getParameter("postreply");
+	String status = request.getParameter("status");
  int comp = Integer.parseInt(request.getParameter("comp"));
  String cmpno=""+comp;
 	System.out.println(reply);
 java.sql.Date d= new java.sql.Date(new java.util.Date().getTime());
 	GChatDAO gchatdao = new GChatDAO();
-     gchatdao.create(cmpno, reply, d);
-	request.getRequestDispatcher("adminpannel.jsp").forward(request, response);
+     gchatdao.create(status,cmpno, reply, d);
+     Grievences gev = new Grievences();
+ 	GrievencesDao obj = new GrievencesDao();
+     gev.setComplaint_no(comp);
+     gev.setStatus('r');
+     obj.editByComp(gev);
+     
+     if(status.equals("a"))
+	request.getRequestDispatcher("postreply.jsp?compi="+cmpno).forward(request, response);
+     else
+    		request.getRequestDispatcher("viewreply.jsp?gid="+cmpno).forward(request, response);
+
 %>
 </body>
 </html>
