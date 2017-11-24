@@ -8,7 +8,7 @@ import com.gs.jdbc.utilities.MyDatabaseConnection;
 
 import java.util.*;
 
-public class GrievencesDao {
+public class GrievencesDao { 
 	public void create(Grievences obj) {
 		System.out.println(obj);
 		Connection conn = MyDatabaseConnection.getConnection();

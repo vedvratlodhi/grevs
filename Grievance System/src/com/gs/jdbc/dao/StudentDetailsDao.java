@@ -11,7 +11,7 @@ import com.gs.jdbc.entity.StudentDetails;
 import com.gs.jdbc.utilities.MyDatabaseConnection;
 
 public class StudentDetailsDao {
-
+ 
 	public void create(StudentDetails student) {
 		Connection conn = MyDatabaseConnection.getConnection();
 		try {

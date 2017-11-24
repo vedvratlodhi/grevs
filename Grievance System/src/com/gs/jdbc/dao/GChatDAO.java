@@ -13,7 +13,7 @@ import com.gs.jdbc.entity.Grievences;
 import com.gs.jdbc.utilities.MyDatabaseConnection;
 
 public class GChatDAO {
-
+ 
 	public void create(String status,String cmpno ,String reply,java.sql.Date d) {
 		System.out.println(cmpno);
 		System.out.println(reply);
