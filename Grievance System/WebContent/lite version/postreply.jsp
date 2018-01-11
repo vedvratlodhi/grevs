@@ -232,7 +232,7 @@ app.bundle.css:1
 				
 			<form action="closeGrievances.jsp" method="post">
 			<input type="hidden" name="no" value="<%=gri.getComplaint_no()%>">
-			<input class="btn btn-warning" style="margin-bottom:10px;" type="submit" value="Close Grievance">
+			<input class="btn btn-info" style="margin-bottom:10px;" type="submit" value="Close Grievance">
 			</form>
 			<div class="card">
 				<h4 class="card-title"><%=gri.getEnroll_no() %></h4>

@@ -56,6 +56,8 @@
 									<option value="Non-payment or Delay in payment of scholarships">Non-payment or Delay in payment of scholarships</option>
 									<option value="Grievance on discrimination by students from SC/ST/Minority/Women/Disabled Categories">Grievance on discrimination by students from SC/ST/Minority/Women/Disabled Categories</option>
 									<option value="college timing">college timing</option>
+								  <option value="Other">Other</option>
+								
 								</select> <span class="field-validation-valid"
 									data-valmsg-for="GrievanceTypeID" data-valmsg-replace="true"
 									style="color: red"></span>

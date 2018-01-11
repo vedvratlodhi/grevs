@@ -55,7 +55,7 @@
 					<ul class="navbar-nav my-lg-0">
 						<li class="nav-item dropdown">
 						
-								<a class="btn btn-warning" style="font-size:18px;" href="NewFile.jsp">Logout</a>
+								<a class="btn btn-info" style="font-size:18px;" href="NewFile.jsp">Logout</a>
 						 <!--   <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="NewFile.jsp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logout</a>
                        --></li>
 					</ul>

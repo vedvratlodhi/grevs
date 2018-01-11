@@ -75,7 +75,7 @@ border-bottom:2px #d7e4f4 solid;
 #chat-wrapper .chat-row .bubble {
     max-width:60%;
     display: inline;
-    background: #28bebd;
+    background: #78adc9;
     float: right;
     color: #fff;
     border-radius: 5px;

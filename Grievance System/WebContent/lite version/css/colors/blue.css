@@ -36,13 +36,8 @@ File: scss
 /*Top bar
 *******************/
 .topbar {
-  background: #009efb;
-  /* Old browsers */
-  background: -moz-linear-gradient(left, #0178bc 0%, #00bdda 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #0178bc 0%, #00bdda 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #0178bc 0%, #00bdda 100%);
+  
+  background: #313b3d;
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
@@ -103,7 +98,7 @@ a.link:hover, a.link:focus {
 }
 
 .text-themecolor {
-  color: #009efb !important;
+  color: #78adc9 !important;
 }
 
 .profile-tab li a.nav-link.active,
@@ -152,7 +147,7 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
-  color: #009efb;
+  color: #78adc9;
 }
 
 .sidebar-nav ul li a.active {
@@ -177,15 +172,15 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav > ul > li > a.active, .sidebar-nav > ul > li > a:hover {
-  border-left: 3px solid #009efb;
+  border-left: 3px solid #78adc9;
 }
 
 .sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
-  color: #009efb;
+  color: #78adc9;
 }
 
 .sidebar-nav > ul > li > a i {
-  color: #a6b7bf;
+  color: #78adc9;
 }
 
 .sidebar-nav > ul > li > a.active {
