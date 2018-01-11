@@ -40,6 +40,68 @@
 
 
 
+<!-- Start Page Content -->
+				<!-- ============================================================== -->
+				<%
+		
+				String obj1 = (String) session.getAttribute("id");
+					AdminDetailsDao obj = new AdminDetailsDao();
+
+					ArrayList<AdminDetails> al = obj.findAll();
+
+					if (al == null) {
+				%>
+				<h1>Record not found</h1>
+				<%
+					} else {
+						System.out.println(al);
+				%>
+				<div class="row">
+					<!-- column -->
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-block">
+								<h4 class="card-title">Profile</h4>
+								<div class="table-responsive">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Designation</th>
+												<th>Mobile</th>
+												<th>Email</th>
+											
+											</tr>
+										</thead>
+										<tbody>
+											<%
+												for (AdminDetails gri : al) {
+											%>
+
+											<tr>
+												
+												<td><%=gri.getAd_name()%></td>
+												<td><%=gri.getDesign()%></td>
+												<td><%=gri.getAd_mobileno()%></td>
+												<td><%=gri.getAd_email()%></td>
+
+												
+
+											</tr>
+											<%
+												}
+												}
+											%>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div></div>
+				</div>
+
 
 
 

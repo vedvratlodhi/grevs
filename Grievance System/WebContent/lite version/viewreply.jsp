@@ -237,7 +237,7 @@ app.bundle.css:1
 
 						<div class="col-sm-12">
 						<div class="chat-row response ">
-							<div class="bubble_response ">
+							<div class="bubble">
 								<div class="message">
 									<p><%=gri.getGrievdetails()%><%System.out.println(gri.getGrievdetails()); %></p>
 								</div>
