@@ -43,18 +43,18 @@
 								<select class="form-control select" data-val="true"
 									data-val-required="The Grievance Type field is required."
 									id="GrievanceTypeID" name="Subject">
-									<option value="grievance regarding college transportation">grievance regarding college transportation</option>
-									<option value="Grievance related to Admission">Grievance related to Admission</option>
-									<option value="Grievance related to Victimization">Grievance related to Victimization</option>
-									<option value="Grievance related to Attendance">Grievance related to Attendance</option>
-									<option value="Grievance related to charging of fees">Grievance related to charging of fees</option>
-									<option value="Grievance regarding non-transparent or unfair evaluation process">Grievance regarding non-transparent or unfair evaluation process</option>
+									<option value="Grievance Regarding college transportation">grievance regarding college transportation</option>
+									<option value="Grievance Related to Admission">Grievance related to Admission</option>
+									<option value="Grievance Related to Victimization">Grievance related to Victimization</option>
+									<option value="Grievance Related to Attendance">Grievance related to Attendance</option>
+									<option value="Grievance Related to charging of fees">Grievance related to charging of fees</option>
+									<option value="Grievance Regarding non-transparent or unfair evaluation process">Grievance regarding non-transparent or unfair evaluation process</option>
 									<option value="Non-observation of AICTE norms and standards">Non-observation of AICTE norms and standards</option>
-									<option value="Refusal to return documents such as certificates">Refusal to return documents such as certificates</option>
-									<option value="Grievance related to harassment by students or teachers">Grievance related to harassment by students or teachers</option>
-									<option value="Grievance related to provision of student amenities and quality education as promised or required to be provided">Grievance related to provision of student amenities and quality education as promised or required to be provided</option>
-									<option value="Non-payment or Delay in payment of scholarships">Non-payment or Delay in payment of scholarships</option>
-									<option value="Grievance on discrimination by students from SC/ST/Minority/Women/Disabled Categories">Grievance on discrimination by students from SC/ST/Minority/Women/Disabled Categories</option>
+									<option value="Refusal to Return documents such as certificates">Refusal to return documents such as certificates</option>
+									<option value="Grievance Related to harassment by students or teachers">Grievance related to harassment by students or teachers</option>
+									<option value="Grievance Related to Provision of Student Amenities and Quality Education as Promised or Required to be Provided">Grievance related to provision of student amenities and quality education as promised or required to be provided</option>
+									<option value="Non-payment or Delay in Payment of Scholarships">Non-payment or Delay in payment of scholarships</option>
+									<option value="Grievance on Discrimination by Students from SC/ST/Minority/Women/Disabled Categories">Grievance on discrimination by students from SC/ST/Minority/Women/Disabled Categories</option>
 									<option value="college timing">college timing</option>
 								  <option value="Other">Other</option>
 								
